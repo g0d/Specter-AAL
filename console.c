@@ -2,7 +2,7 @@
 /*                                  Specter                                   */
 /*                                <<Console>>                                 */
 /*                              George Delaportas                             */
-/*                            Copyright © 2010-2022                           */
+/*                            Copyright © 2010-2023                           */
 /******************************************************************************/
 
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	printf("=====================\n");
 	printf("*** Specter (AAL) ***\n");
 	printf("---------------------\n");
-	printf("    |Version 1.2|    \n");
+	printf("    |Version 1.3|    \n");
 	printf("=====================\n");
 	printf("\n");
 	printf("1. Addition\n");

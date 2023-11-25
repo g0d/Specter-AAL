@@ -2,11 +2,11 @@
 echo "************************************"
 echo "*            # Specter #           *"
 echo "*   Abstract Arithmetics Library   *"
-echo "*      Copyright © 2010-2022       *"
+echo "*      Copyright © 2010-2023       *"
 echo "************************************"
 echo ""
 echo "George Delaportas"
-echo "Copyright (C) 2010-2022"
+echo "Copyright (C) 2010-2023"
 echo ""
 echo "Installing..."
 
@@ -14,7 +14,7 @@ echo "Installing..."
 gcc -std=gnu99 -ansi -pedantic -O3 -c console.c aal.c benchmark.c
 
 #Link
-gcc -Wl -o Specter console.o aal.o benchmark.o
+gcc -W -o Specter console.o aal.o benchmark.o
 
 #Clean up
 rm *.o
