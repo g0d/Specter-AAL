@@ -18,6 +18,10 @@
 #include "aal.h"
 #endif
 
+#ifndef __SPECTER_H__
+#include "specter.h"
+#endif
+
 #ifndef __BENCHMARK_H__
 #include "benchmark.h"
 #endif
