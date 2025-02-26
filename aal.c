@@ -1,14 +1,14 @@
 /******************************************************************************/
-/*                                  Specter                                   */
+/*                                   Specter                                  */
 /*                      <<Abstract Arithmetics Library>>                      */
 /*                              George Delaportas                             */
-/*                            Copyright © 2010-2023                           */
+/*                            Copyright © 2010-2025                           */
 /******************************************************************************/
 
 
 
 /* Headers */
-#include "aal.h"
+#include "headers/aal.h"
 
 /* AAL - Length */
 uintptr_t aal_len(char *X)
@@ -266,6 +266,9 @@ char *aal_clrmin(char *X)
 		
 		*P++;
 	}
+	
+	if (P == X)
+		return AbsNum;
 	
 	AbsNum[P - X - 1] = '\0';
 	

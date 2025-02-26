@@ -2,7 +2,7 @@
 /*                                   Specter                                  */
 /*                   <<Abstract Arithmetics Library Header>>                  */
 /*                              George Delaportas                             */
-/*                            Copyright © 2010-2023                           */
+/*                            Copyright © 2010-2025                           */
 /******************************************************************************/
 
 

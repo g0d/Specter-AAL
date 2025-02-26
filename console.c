@@ -1,14 +1,14 @@
 /******************************************************************************/
-/*                                  Specter                                   */
-/*                                <<Console>>                                 */
+/*                                   Specter                                  */
+/*                                 <<Console>>                                */
 /*                              George Delaportas                             */
-/*                            Copyright © 2010-2023                           */
+/*                            Copyright © 2010-2025                           */
 /******************************************************************************/
 
 
 
 /* Headers */
-#include "console.h"
+#include "headers/console.h"
 
 /* Main Function */
 int main(int argc, char *argv[])

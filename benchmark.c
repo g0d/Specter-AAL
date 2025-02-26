@@ -2,13 +2,13 @@
 /*                                   Specter                                  */
 /*                       	      <<Benchmark>>      	                      */
 /*                              George Delaportas                             */
-/*                            Copyright © 2010-2023                           */
+/*                            Copyright © 2010-2025                           */
 /******************************************************************************/
 
 
 
 /* Headers */
-#include "benchmark.h"
+#include "headers/benchmark.h"
 
 /* Benchmark Function */
 long benchmark()

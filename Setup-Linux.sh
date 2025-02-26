@@ -2,11 +2,11 @@
 echo "************************************"
 echo "*            # Specter #           *"
 echo "*   Abstract Arithmetics Library   *"
-echo "*      Copyright © 2010-2023       *"
+echo "*      Copyright © 2010-2025       *"
 echo "************************************"
 echo ""
 echo "George Delaportas"
-echo "Copyright (C) 2010-2023"
+echo "Copyright (C) 2010-2025"
 echo ""
 echo "Installing..."
 
