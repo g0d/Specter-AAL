@@ -43,16 +43,15 @@ char *specter_add(char *A, char *B)
 	{
 		MinA = aal_minchk(A);
 		MinB = aal_minchk(B);
-		printf("CMP: %c\n", aal_cmp(A, B));
-		exit(0);
-		if (MinA == '1' && A == "-0")
-			A = aal_clrmin(A);
-		
-		if (MinB == '1' && B == "-0")
-			B = aal_clrmin(B);
 		
 		ZeroA = aal_zrchk(A);
 		ZeroB = aal_zrchk(B);
+
+		if (MinA == '1' && ZeroA == '1')
+			A = aal_clrmin(A);
+		
+		if (MinB == '1' && ZeroB == '1')
+			B = aal_clrmin(B);
 
 		if (ZeroA == '1')
 			Result = aal_clrzr(B);
@@ -60,9 +59,6 @@ char *specter_add(char *A, char *B)
 			Result = aal_clrzr(A);
 		else
 		{
-			MinA = aal_minchk(A);
-			MinB = aal_minchk(B);
-			
 			DotA = aal_dotchk(A);
 			DotB = aal_dotchk(B);
 			

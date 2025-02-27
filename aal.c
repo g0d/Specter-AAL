@@ -68,7 +68,7 @@ char aal_cmp(char *A, char *B)
 	
 	ZeroA = aal_zrchk(A);
 	ZeroB = aal_zrchk(B);
-	
+
 	if (ZeroA == '1' && ZeroB == '1')
 		return Bigger;
 	
@@ -221,7 +221,6 @@ char *aal_clrzr(char *X)
 	char Flag;
 	char *P;
 	char *ClrStr = aal_mem_alloc_1(X);
-	char MinX = aal_minchk(X);
 	
 	Flag = '0';
 	P = X;
@@ -504,8 +503,6 @@ rdflout aal_rdfl(const char *Z)
 		
 		if (flsz < 3)
 		{
-			printf("File does not include any numbers!\n");
-			
 			locrdflout.Num1 = "ERROR\0";
 			locrdflout.Num2 = "ERROR\0";
 		}
