@@ -751,7 +751,6 @@ char *aal_add(char *A, char *B)
 		
 		if (k > 9)
 			CS[P - newfxlnrs.Num1] = '1';
-		
 		else
 			CS[P - newfxlnrs.Num1] = '0';
 		

@@ -61,7 +61,6 @@ char *specter_add(char *A, char *B)
 		{
 			if (MinA == '0' && MinB == '0')
 				Result = aal_add(A, B);
-			
 			else if (MinA == '1' && MinB == '1')
 			{
 				A = aal_clrmin(A);
@@ -153,7 +152,6 @@ char *specter_sub(char *A, char *B)
 		{
 			if (MinA == '0' && MinB == '0')
 				Result = aal_sub(A, B);
-			
 			else if (MinA == '1' && MinB == '1')
 			{
 				Result = aal_sub(A, B);

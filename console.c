@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	printf("=====================\n");
 	printf("*** Specter (AAL) ***\n");
 	printf("---------------------\n");
-	printf("    |Version 1.3|    \n");
+	printf("    |Version 1.4|    \n");
 	printf("=====================\n");
 	printf("\n");
 	printf("1. Addition\n");
