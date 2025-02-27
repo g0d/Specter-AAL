@@ -43,7 +43,7 @@ char *specter_add(char *A, char *B)
 	{
 		A = aal_clrzr(A);
 		B = aal_clrzr(B);
-		
+
 		MinA = aal_minchk(A);
 		MinB = aal_minchk(B);
 		
@@ -66,9 +66,8 @@ char *specter_add(char *A, char *B)
 		else
 		{
 			if (MinA == '0' && MinB == '0')
-			{
 				Result = aal_add(A, B);
-			}
+			
 			else if (MinA == '1' && MinB == '1')
 			{
 				A = aal_clrmin(A);
@@ -119,6 +118,8 @@ char *specter_sub(char *A, char *B)
 	char MinB;
 	char Bigger;
 	char *Result = aal_mem_alloc_2(A, B);
+	uintptr_t DotA;
+	uintptr_t DotB;
 	
 	ZeroA = '0';
 	ZeroB = '0';
