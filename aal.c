@@ -516,6 +516,8 @@ rdflout aal_rdfl(const char *Z)
 			
 			locrdflout.Num1 = aal_copy(FlStrm, 0);
 			locrdflout.Num2 = aal_copy(FlStrm, i + 1);
+
+			aal_mem_dealloc(FlStrm);
 		}
 		
 		fclose(FP);
@@ -777,6 +779,11 @@ char *aal_add(char *A, char *B)
 	if (Flag == '1')
 		Result = aal_rvrs(Result);
 	
+	aal_mem_dealloc(S);
+	aal_mem_dealloc(T);
+	aal_mem_dealloc(SS);
+	aal_mem_dealloc(CS);
+	
 	return Result;
 }
 
@@ -791,9 +798,9 @@ char *aal_sub(char *A, char *B)
 	char *P;
 	char *S = aal_mem_alloc_num(3);
 	char *T = aal_mem_alloc_num(3);
-	char *Tmp = aal_mem_alloc_2(A, B);
 	char *SS = aal_mem_alloc_2(A, B);
 	char *CS = aal_mem_alloc_2(A, B);
+	char *Buffer = aal_mem_alloc_2(A, B);
 	char *Result = aal_mem_alloc_2(A, B);
 	fixlen newfxlnrs;
 	
@@ -805,9 +812,9 @@ char *aal_sub(char *A, char *B)
 	
 	if (Bigger == '2')
 	{
-		Tmp = aal_copy(B, 0);
+		Buffer = aal_copy(B, 0);
 		B = aal_copy(A, 0);
-		A = Tmp;
+		A = Buffer;
 	}
 	*/
 	newfxlnrs = aal_fixlen(A, B);
@@ -895,6 +902,12 @@ char *aal_sub(char *A, char *B)
 	
 	if (Flag == '1')
 		Result = aal_rvrs(Result);
+	
+	aal_mem_dealloc(S);
+	aal_mem_dealloc(T);
+	aal_mem_dealloc(SS);
+	aal_mem_dealloc(CS);
+	aal_mem_dealloc(Buffer);
 	
 	return Result;
 }
