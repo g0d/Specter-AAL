@@ -47,16 +47,16 @@ char *specter_add(char *A, char *B)
 		DotA = aal_dotchk(A);
 		DotB = aal_dotchk(B);
 		
-		if (MinA == '1' && ZeroA == '1')
+		if (ZeroA == '1')
 			A = aal_clrmin(A);
 		
-		if (MinB == '1' && ZeroB == '1')
+		if (ZeroB == '1')
 			B = aal_clrmin(B);
 		
 		if (ZeroA == '1')
-			Result = B;
+			Result = aal_clrizr(B);
 		else if (ZeroB == '1')
-			Result = A;
+			Result = aal_clrizr(A);
 		else
 		{
 			if (MinA == '0' && MinB == '0')
@@ -138,16 +138,16 @@ char *specter_sub(char *A, char *B)
 		DotA = aal_dotchk(A);
 		DotB = aal_dotchk(B);
 		
-		if (MinA == '1' && ZeroA == '1')
+		if (ZeroA == '1')
 			A = aal_clrmin(A);
 		
 		if (MinB == '1' && ZeroB == '1')
 			B = aal_clrmin(B);
 		
 		if (ZeroA == '1')
-			Result = B;
+			Result = aal_clrizr(B);
 		else if (ZeroB == '1')
-			Result = A;
+			Result = aal_clrizr(A);
 		else
 		{
 			if (MinA == '0' && MinB == '0')
