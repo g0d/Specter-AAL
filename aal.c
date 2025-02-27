@@ -809,6 +809,7 @@ char *aal_sub(char *A, char *B)
 	TmpA = '0';
 	TmpB = '0';
 	Flag = '0';
+	/*
 	Bigger = '0';
 	
 	Bigger = aal_cmp(A, B);
@@ -819,7 +820,7 @@ char *aal_sub(char *A, char *B)
 		B = aal_copy(A, 0);
 		A = Tmp;
 	}
-	
+	*/
 	newfxlnrs = aal_fixlen(A, B);
 	
 	P = newfxlnrs.Num1;

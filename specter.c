@@ -145,7 +145,10 @@ char *specter_sub(char *A, char *B)
 			B = aal_clrmin(B);
 		
 		if (ZeroA == '1')
+		{
 			Result = aal_clrizr(B);
+			Result = aal_setmin(Result);
+		}
 		else if (ZeroB == '1')
 			Result = aal_clrizr(A);
 		else
@@ -153,9 +156,7 @@ char *specter_sub(char *A, char *B)
 			if (MinA == '0' && MinB == '0')
 				Result = aal_sub(A, B);
 			else if (MinA == '1' && MinB == '1')
-			{
 				Result = aal_sub(A, B);
-			}
 			else
 			{
 				if (MinA == '1')
