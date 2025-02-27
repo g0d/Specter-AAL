@@ -41,11 +41,17 @@ char *specter_add(char *A, char *B)
 	}
 	else
 	{
+		A = aal_clrzr(A);
+		B = aal_clrzr(B);
+		
 		MinA = aal_minchk(A);
 		MinB = aal_minchk(B);
 		
 		ZeroA = aal_zrchk(A);
 		ZeroB = aal_zrchk(B);
+
+		DotA = aal_dotchk(A);
+		DotB = aal_dotchk(B);
 
 		if (MinA == '1' && ZeroA == '1')
 			A = aal_clrmin(A);
@@ -59,26 +65,16 @@ char *specter_add(char *A, char *B)
 			Result = aal_clrzr(A);
 		else
 		{
-			DotA = aal_dotchk(A);
-			DotB = aal_dotchk(B);
-			
 			if (MinA == '0' && MinB == '0')
 			{
-				A = aal_clrzr(A);
-				B = aal_clrzr(B);
-				
 				Result = aal_add(A, B);
 			}
 			else if (MinA == '1' && MinB == '1')
 			{
 				A = aal_clrmin(A);
 				B = aal_clrmin(B);
-				
-				A = aal_clrzr(A);
-				B = aal_clrzr(B);
-				
+
 				Result = aal_add(A, B);
-				
 				Result = aal_setmin(Result);
 			}
 			else
@@ -86,10 +82,7 @@ char *specter_add(char *A, char *B)
 				if (MinA == '1')
 				{
 					A = aal_clrmin(A);
-					
-					A = aal_clrzr(A);
-					B = aal_clrzr(B);
-					
+
 					Result = aal_sub(A, B);
 					
 					Bigger = aal_cmp(A, B);
@@ -101,9 +94,6 @@ char *specter_add(char *A, char *B)
 				if (MinB == '1')
 				{
 					B = aal_clrmin(B);
-					
-					A = aal_clrzr(A);
-					B = aal_clrzr(B);
 					
 					Result = aal_sub(A, B);
 					
@@ -119,7 +109,7 @@ char *specter_add(char *A, char *B)
 	return Result;
 }
 
-/* Specter - Subtraction */
+/* Specter - Subtraction :: TODO FIX */
 char *specter_sub(char *A, char *B)
 {
 	char Err;
