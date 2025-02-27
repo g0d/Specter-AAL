@@ -14,8 +14,8 @@
 char *specter_add(char *A, char *B)
 {
 	char Err;
-	char AZero;
-	char BZero;
+	char ZeroA;
+	char ZeroB;
 	char MinA;
 	char MinB;
 	char Bigger;
@@ -23,8 +23,8 @@ char *specter_add(char *A, char *B)
 	uintptr_t DotA;
 	uintptr_t DotB;
 	
-	AZero = '0';
-	BZero = '0';
+	ZeroA = '0';
+	ZeroB = '0';
 	MinA = '0';
 	MinB = '0';
 	Bigger = '0';
@@ -41,12 +41,22 @@ char *specter_add(char *A, char *B)
 	}
 	else
 	{
-		AZero = aal_zrchk(A);
-		BZero = aal_zrchk(B);
+		MinA = aal_minchk(A);
+		MinB = aal_minchk(B);
+		printf("CMP: %c\n", aal_cmp(A, B));
+		exit(0);
+		if (MinA == '1' && A == "-0")
+			A = aal_clrmin(A);
 		
-		if (AZero == '1')
+		if (MinB == '1' && B == "-0")
+			B = aal_clrmin(B);
+		
+		ZeroA = aal_zrchk(A);
+		ZeroB = aal_zrchk(B);
+
+		if (ZeroA == '1')
 			Result = aal_clrzr(B);
-		else if (BZero == '1')
+		else if (ZeroB == '1')
 			Result = aal_clrzr(A);
 		else
 		{
@@ -117,15 +127,15 @@ char *specter_add(char *A, char *B)
 char *specter_sub(char *A, char *B)
 {
 	char Err;
-	char AZero;
-	char BZero;
+	char ZeroA;
+	char ZeroB;
 	char MinA;
 	char MinB;
 	char Bigger;
 	char *Result = aal_mem_alloc_2(A, B);
 	
-	AZero = '0';
-	BZero = '0';
+	ZeroA = '0';
+	ZeroB = '0';
 	MinA = '0';
 	MinB = '0';
 	Bigger = '0';
@@ -142,12 +152,12 @@ char *specter_sub(char *A, char *B)
 	}
 	else
 	{
-		AZero = aal_zrchk(A);
-		BZero = aal_zrchk(B);
+		ZeroA = aal_zrchk(A);
+		ZeroB = aal_zrchk(B);
 		
-		if (AZero == '1')
+		if (ZeroA == '1')
 			Result = aal_clrzr(B);
-		else if (BZero == '1')
+		else if (ZeroB == '1')
 			Result = aal_clrzr(A);
 		else
 		{
@@ -171,7 +181,7 @@ char *specter_sub(char *A, char *B)
 				
 				Result = aal_sub(A, B);
 				
-				Result = aal_setmin(Result);
+				/*Result = aal_setmin(Result);*/
 			}
 			else
 			{
@@ -186,8 +196,8 @@ char *specter_sub(char *A, char *B)
 					
 					Bigger = aal_cmp(A, B);
 					
-					if (Bigger == '1')
-						Result = aal_setmin(Result);
+					/*if (Bigger == '1')
+						Result = aal_setmin(Result);*/
 				}
 				
 				if (MinB == '1')
@@ -201,8 +211,8 @@ char *specter_sub(char *A, char *B)
 					
 					Bigger = aal_cmp(A, B);
 					
-					if (Bigger == '2')
-						Result = aal_setmin(Result);
+					/*if (Bigger == '2')
+						Result = aal_setmin(Result);*/
 				}
 			}
 		}

@@ -54,18 +54,44 @@ char aal_cmp(char *A, char *B)
 {
 	char Bigger;
 	char *P;
+	char MinA;
+	char MinB;
+	char ZeroA;
+	char ZeroB;
 	uintptr_t LenA; 
 	uintptr_t LenB;
 	
 	Bigger = '0';
 	
+	A = aal_clrzr(A);
+	B = aal_clrzr(B);
+	
+	ZeroA = aal_zrchk(A);
+	ZeroB = aal_zrchk(B);
+	
+	if (ZeroA == '1' && ZeroB == '1')
+		return Bigger;
+	
 	LenA = aal_len(A);
 	LenB = aal_len(B);
 	
+	MinA = aal_minchk(A);
+	MinB = aal_minchk(B);
+	
 	if (LenA > LenB)
-		Bigger = '1';
+	{
+		if (MinA == '1')
+			Bigger = '2';
+		else
+			Bigger = '1';
+	}
 	else if (LenA < LenB)
-		Bigger = '2';
+	{
+		if (MinB == '1')
+			Bigger = '1';
+		else
+			Bigger = '2';
+	}
 	else
 	{
 		P = A;
@@ -74,12 +100,20 @@ char aal_cmp(char *A, char *B)
 		{
 			if (A[P - A] > B[P - A])
 			{
-				Bigger = '1';
+				if (MinA == '1')
+					Bigger = '2';
+				else
+					Bigger = '1';
+				
 				break;
 			}
 			else if (A[P - A] < B[P - A])
             {
-				Bigger = '2';
+				if (MinB == '1')
+					Bigger = '1';
+				else
+					Bigger = '2';
+				
 				break;
 			}
 			
@@ -105,7 +139,7 @@ char *aal_rvrs(char *X)
 	{
 		while (*P != '\0')
 		{
-			RevStr[(P - X)] = X[LenX - (P - X) - 1];
+			RevStr[P - X] = X[LenX - (P - X) - 1];
 			
 			*P++;
 		}
@@ -157,24 +191,25 @@ char aal_zrchk(char *X)
 {
 	char Zero;
 	char *P;
-	char *Tracer;
+	uintptr_t Tracer;
 	uintptr_t LenX;
+
+	X = aal_clrmin(X);
+	LenX = aal_len(X);
 	
 	Zero = '0';
 	P = X;
-	Tracer = X;
-	
-	LenX = aal_len(X);
+	Tracer = 0;
 	
 	while (*P != '\0')
 	{
-		if (X[(P - X)] == '0')
-			*Tracer++;
+		if (X[P - X] == '0')
+			Tracer++;
 		
 		*P++;
 	}
 	
-	if ((Tracer - X) == LenX)
+	if (Tracer == LenX)
 		Zero = '1';
 	
 	return Zero;
@@ -186,13 +221,14 @@ char *aal_clrzr(char *X)
 	char Flag;
 	char *P;
 	char *ClrStr = aal_mem_alloc_1(X);
+	char MinX = aal_minchk(X);
 	
 	Flag = '0';
 	P = X;
 	
 	while (*P != '\0')
     {
-		if (X[(P - X)] != '0' && (isdigit(X[(P - X)]) || X[(P - X)] == '-' || X[(P - X)] == '.'))
+		if (X[P - X] != '0' && (isdigit(X[P - X]) || X[P - X] == '-' || X[P - X] == '.'))
 		{
 			ClrStr = aal_copy(X, (P - X));
 			
@@ -203,6 +239,9 @@ char *aal_clrzr(char *X)
 		
 		*P++;
 	}
+	
+	if (aal_dotchk(ClrStr) == 0)
+		ClrStr = aal_pad(ClrStr, "0");
 	
 	if (Flag == '0')
 	{
@@ -258,6 +297,9 @@ char *aal_clrmin(char *X)
 	char *P;
 	char *AbsNum = aal_mem_alloc_1(X);
 	
+	if (aal_minchk(X) == '0')
+		return X;
+	
 	P = X;
 	
 	while (*P != '\0')
@@ -279,18 +321,27 @@ char *aal_clrmin(char *X)
 uintptr_t aal_dotchk(char *X)
 {
 	char *P;
+	char Flag;
 	
 	P = X;
+	Flag = 0;
 	
 	while (*P != '\0')
 	{
-		if (X[(P - X)] == '.')
+		if (X[P - X] == '.')
+		{
+			Flag = '1';
+			
 			break;
+		}
 		
 		*P++;
 	}
 	
-	return (P - X);
+	if (Flag == '1')
+		return (P - X);
+	
+	return -1;
 }
 
 /* AAL - Set Dot (Comma Sign) */
@@ -498,17 +549,17 @@ char aal_errchk_1(char *X)
 		
 		if (Check == 0)
 		{
-			if (((P - X) == 0 && X[(P - X)] != '-') || 
-			    ((P - X) > 0 && X[(P - X)] != '.') || 
-			    ((P - X) == LenX - 1 && X[(P - X)] == '.') || 
-			    (X[(P - X)] == '.' && Dot == '1'))
+			if (((P - X) == 0 && X[P - X] != '-') || 
+			    ((P - X) > 0 && X[P - X] != '.') || 
+			    ((P - X) == LenX - 1 && X[P - X] == '.') || 
+			    (X[P - X] == '.' && Dot == '1'))
 			{
 				Err = '1';
 				
 				break;
 			}
 			
-			if (X[(P - X)] == '.')
+			if (X[P - X] == '.')
 				Dot = '1';
 		}
 		

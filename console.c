@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 				
 				delay = final_time - init_time;
 				
-				printf("BENCHMARK :: Delay: %lims\n", delay);
+				printf("\nBenchmark :: Delay: %lims\n", delay);
 			}
 			
 			if (i == 2)
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
 				
 				delay = final_time - init_time;
 				
-				printf("BENCHMARK :: Delay: %lims\n", delay);
+				printf("\nBenchmark :: Delay: %lims\n", delay);
 			}
 		}
 		else if (j == 2)
@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
 			
 			delay = final_time - init_time;
 			
-			printf("BENCHMARK :: Delay: %lims\n", delay);
+			printf("\nBenchmark :: Delay: %lims\n", delay);
 		}
 		else
 			printf("\nWrong selection!\n");

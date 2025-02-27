@@ -1,8 +1,8 @@
 :: Messages
 @echo "************************************"
-@echo "*            # Specter #           *"
+@echo "*           # Specter #            *"
 @echo "*   Abstract Arithmetics Library   *"
-@echo "*      Copyright (C) 2010-2025       *"
+@echo "*      Copyright (C) 2010-2025     *"
 @echo "************************************"
 @echo.
 @echo "George Delaportas"
