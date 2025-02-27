@@ -52,7 +52,7 @@ char *aal_pad(char *X, char *S);
 char aal_zrchk(char *X);
 
 /* AAL - Clear Initial Zeroes */
-char *aal_clrzr(char *X);
+char *aal_clrizr(char *X);
 
 /* AAL - Minus Check (Minus Sign) */
 char aal_minchk(char *X);

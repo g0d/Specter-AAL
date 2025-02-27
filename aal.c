@@ -63,8 +63,8 @@ char aal_cmp(char *A, char *B)
 	
 	Bigger = '0';
 	
-	A = aal_clrzr(A);
-	B = aal_clrzr(B);
+	A = aal_clrizr(A);
+	B = aal_clrizr(B);
 	
 	ZeroA = aal_zrchk(A);
 	ZeroB = aal_zrchk(B);
@@ -216,7 +216,7 @@ char aal_zrchk(char *X)
 }
 
 /* AAL - Clear Initial Zeroes */
-char *aal_clrzr(char *X)
+char *aal_clrizr(char *X)
 {
 	char Flag;
 	char *P;
@@ -784,7 +784,7 @@ char *aal_add(char *A, char *B)
 	if (Flag == '1')
 		Result = aal_rvrs(Result);
 	
-	return Result;
+	return aal_clrizr(Result);
 }
 
 /* AAL - Subtraction */
@@ -906,7 +906,7 @@ char *aal_sub(char *A, char *B)
 	if (Flag == '1')
 		Result = aal_rvrs(Result);
 	
-	return Result;
+	return aal_clrizr(Result);
 }
 
 /******************************************************************************/

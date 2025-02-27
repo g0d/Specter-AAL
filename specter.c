@@ -35,8 +35,8 @@ char *specter_add(char *A, char *B)
 	}
 	else
 	{
-		A = aal_clrzr(A);
-		B = aal_clrzr(B);
+		A = aal_clrizr(A);
+		B = aal_clrizr(B);
 		
 		MinA = aal_minchk(A);
 		MinB = aal_minchk(B);
@@ -54,9 +54,9 @@ char *specter_add(char *A, char *B)
 			B = aal_clrmin(B);
 		
 		if (ZeroA == '1')
-			Result = aal_clrzr(B);
+			Result = B;
 		else if (ZeroB == '1')
-			Result = aal_clrzr(A);
+			Result = A;
 		else
 		{
 			if (MinA == '0' && MinB == '0')
@@ -126,8 +126,8 @@ char *specter_sub(char *A, char *B)
 	}
 	else
 	{
-		A = aal_clrzr(A);
-		B = aal_clrzr(B);
+		A = aal_clrizr(A);
+		B = aal_clrizr(B);
 		
 		MinA = aal_minchk(A);
 		MinB = aal_minchk(B);
@@ -145,9 +145,9 @@ char *specter_sub(char *A, char *B)
 			B = aal_clrmin(B);
 		
 		if (ZeroA == '1')
-			Result = aal_clrzr(B);
+			Result = B;
 		else if (ZeroB == '1')
-			Result = aal_clrzr(A);
+			Result = A;
 		else
 		{
 			if (MinA == '0' && MinB == '0')
@@ -164,8 +164,8 @@ char *specter_sub(char *A, char *B)
 					
 					Bigger = aal_cmp(A, B);
 					
-					/*if (Bigger == '1')
-						Result = aal_setmin(Result);*/
+					if (Bigger == '1')
+						Result = aal_setmin(Result);
 				}
 				
 				if (MinB == '1')
@@ -174,8 +174,8 @@ char *specter_sub(char *A, char *B)
 					
 					Bigger = aal_cmp(A, B);
 					
-					/*if (Bigger == '2')
-						Result = aal_setmin(Result);*/
+					if (Bigger == '2')
+						Result = aal_setmin(Result);
 				}
 			}
 		}
