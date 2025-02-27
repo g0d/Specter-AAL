@@ -74,7 +74,7 @@ char *specter_add(char *A, char *B)
 				if (MinA == '1')
 				{
 					A = aal_clrmin(A);
-
+					
 					Result = aal_sub(A, B);
 					
 					Bigger = aal_cmp(A, B);
