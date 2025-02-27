@@ -23,12 +23,6 @@ char *specter_add(char *A, char *B)
 	uintptr_t DotA;
 	uintptr_t DotB;
 	
-	ZeroA = '0';
-	ZeroB = '0';
-	MinA = '0';
-	MinB = '0';
-	Bigger = '0';
-	
 	Err = aal_errchk_2(A, B);
 	
 	if ((aal_len(A) == 1 && isdigit(A[0]) == 0) || (aal_len(B) == 1 && isdigit(B[0]) == 0))
@@ -120,12 +114,6 @@ char *specter_sub(char *A, char *B)
 	char *Result = aal_mem_alloc_2(A, B);
 	uintptr_t DotA;
 	uintptr_t DotB;
-	
-	ZeroA = '0';
-	ZeroB = '0';
-	MinA = '0';
-	MinB = '0';
-	Bigger = '0';
 	
 	Err = aal_errchk_2(A, B);
 	
