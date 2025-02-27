@@ -784,7 +784,7 @@ char *aal_add(char *A, char *B)
 	aal_mem_dealloc(SS);
 	aal_mem_dealloc(CS);
 	
-	return Result;
+	return aal_clrizr(Result);
 }
 
 /* AAL - Subtraction */
@@ -805,9 +805,7 @@ char *aal_sub(char *A, char *B)
 	fixlen newfxlnrs;
 	
 	Flag = '0';
-	/*
-	Bigger = '0';
-	
+
 	Bigger = aal_cmp(A, B);
 	
 	if (Bigger == '2')
@@ -816,7 +814,7 @@ char *aal_sub(char *A, char *B)
 		B = aal_copy(A, 0);
 		A = Buffer;
 	}
-	*/
+	
 	newfxlnrs = aal_fixlen(A, B);
 	
 	P = newfxlnrs.Num1;
@@ -909,7 +907,7 @@ char *aal_sub(char *A, char *B)
 	aal_mem_dealloc(CS);
 	aal_mem_dealloc(Buffer);
 	
-	return Result;
+	return aal_clrizr(Result);
 }
 
 /******************************************************************************/

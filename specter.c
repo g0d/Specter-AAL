@@ -156,7 +156,14 @@ char *specter_sub(char *A, char *B)
 		else
 		{
 			if (MinA == '0' && MinB == '0')
+			{
 				Result = aal_sub(A, B);
+				
+				Bigger = aal_cmp(A, B);
+				
+				if (Bigger == '2')
+					Result = aal_setmin(Result);
+			}
 			else if (MinA == '1' && MinB == '1')
 			{
 				A = aal_clrmin(A);
@@ -164,7 +171,10 @@ char *specter_sub(char *A, char *B)
 				
 				Result = aal_sub(A, B);
 				
-				Result = aal_setmin(Result);
+				Bigger = aal_cmp(A, B);
+				
+				if (Bigger == '1')
+					Result = aal_setmin(Result);
 			}
 			else
 			{
@@ -172,7 +182,7 @@ char *specter_sub(char *A, char *B)
 				{
 					A = aal_clrmin(A);
 					B = aal_clrmin(B);
-
+					
 					Result = aal_sub(A, B);
 					Result = aal_setmin(Result);
 				}
@@ -180,7 +190,7 @@ char *specter_sub(char *A, char *B)
 				if (MinB == '1')
 				{
 					B = aal_clrmin(B);
-
+					
 					Result = aal_add(A, B);
 				}
 			}
