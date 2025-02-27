@@ -181,9 +181,8 @@ char *specter_sub(char *A, char *B)
 				if (MinA == '1')
 				{
 					A = aal_clrmin(A);
-					B = aal_clrmin(B);
 					
-					Result = aal_sub(A, B);
+					Result = aal_add(A, B);
 					Result = aal_setmin(Result);
 				}
 				
