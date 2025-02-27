@@ -486,7 +486,6 @@ rdflout aal_rdfl(const char *Z)
 	FILE *FP;
 	
 	i = 0;
-	flsz = 0;
 
 	FP = fopen(Z, "r");
 	
@@ -534,7 +533,6 @@ char aal_errchk_1(char *X)
 	char *P;
 	uintptr_t LenX;
 	
-	Check = 1;
 	LenX = aal_len(X);
 	Dot = '0';
 	Err = '0';
@@ -576,7 +574,6 @@ char aal_errchk_2(char *A, char *B)
 	uintptr_t LenA;
 	uintptr_t LenB;
 	
-	Check = 1;
 	Dot = '0';
 	Err = '0';
 	P = A;
@@ -696,10 +693,6 @@ char *aal_add(char *A, char *B)
 	char *Result = aal_mem_alloc_2(A, B);
 	fixlen newfxlnrs;
 	
-	k = 0;
-	
-	TmpA = '0';
-	TmpB = '0';
 	Flag = '0';
 	
 	newfxlnrs = aal_fixlen(A, B);
@@ -784,7 +777,7 @@ char *aal_add(char *A, char *B)
 	if (Flag == '1')
 		Result = aal_rvrs(Result);
 	
-	return aal_clrizr(Result);
+	return Result;
 }
 
 /* AAL - Subtraction */
@@ -804,10 +797,6 @@ char *aal_sub(char *A, char *B)
 	char *Result = aal_mem_alloc_2(A, B);
 	fixlen newfxlnrs;
 	
-	k = 0;
-	
-	TmpA = '0';
-	TmpB = '0';
 	Flag = '0';
 	/*
 	Bigger = '0';
@@ -907,7 +896,7 @@ char *aal_sub(char *A, char *B)
 	if (Flag == '1')
 		Result = aal_rvrs(Result);
 	
-	return aal_clrizr(Result);
+	return Result;
 }
 
 /******************************************************************************/
